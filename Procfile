@@ -1,2 +1,2 @@
-worker: python run.bat
+worker: run.bat
 web: python -m http.server $PORT
