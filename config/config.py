@@ -3,9 +3,18 @@ Configuration settings for the ToDoTrip Telegram bot
 Настройки конфигурации для Telegram бота ToDoTrip
 """
 
-# Bot token from @BotFather
-# Токен бота, полученный от @BotFather
-BOT_TOKEN = "8107744876:AAHXfg1ulvI83K7y--ulZIV8mxUz-tN8Z8s"
+import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
+
+# Bot token from @BotFather (use environment variable for security)
+# Токен бота, полученный от @BotFather (используйте переменную окружения для безопасности)
+BOT_TOKEN = os.getenv("BOT_TOKEN")
+
+if not BOT_TOKEN:
+    raise ValueError("BOT_TOKEN environment variable is not set!")
 
 # Channel ID for forwarding messages
 # ID канала для пересылки сообщений
@@ -17,4 +26,4 @@ WEBSITE_URL = "https://todotrip.pro/"
 
 # Support contact
 # Контакт поддержки
-SUPPORT_CONTACT = "@insendro" 
+SUPPORT_CONTACT = "@insendro"
