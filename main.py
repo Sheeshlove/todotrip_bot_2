@@ -12,6 +12,7 @@ from handlers.site_handler import register_site_handler
 from handlers.dagestan_handler import register_dagestan_handler
 from handlers.contact_handler import register_contact_handler
 from handlers.message_handler import register_message_handler
+from handlers.user_tracker import register_user_tracker
 
 def main():
     """
@@ -21,6 +22,10 @@ def main():
     # Initialize bot
     # Инициализация бота
     bot = telebot.TeleBot(BOT_TOKEN)
+
+    # Register user tracker first (middleware)
+    # Зарегистрировать отслеживание пользователей первым (middleware)
+    register_user_tracker(bot)
 
     # Register all handlers
     # Регистрация всех обработчиков
@@ -38,4 +43,4 @@ def main():
     bot.infinity_polling()
 
 if __name__ == "__main__":
-    main() 
+    main()
