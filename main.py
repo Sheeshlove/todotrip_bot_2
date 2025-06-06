@@ -21,6 +21,7 @@ def main():
     """
     # Initialize bot
     # Инициализация бота
+    telebot.apihelper.ENABLE_MIDDLEWARE = True
     bot = telebot.TeleBot(BOT_TOKEN)
 
     # Register user tracker first (middleware)
